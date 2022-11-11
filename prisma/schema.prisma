@@ -1,0 +1,39 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgres"
+  url      = env("DATABASE_URL")
+}
+
+model Country {
+id    Int     @default(autoincrement()) @id
+name  String?
+CCA2 String?
+CCA3 String?
+CCN3 String?
+region String?
+latitude Float
+longitude Float
+currency Currency[]
+language Language[]
+}
+
+model Currency{
+  id    Int     @default(autoincrement()) @id
+name String
+symbol String
+  country    Country?    @relation(fields: [countryId], references: [id])
+  countryId  Int? 
+}
+
+model Language{
+  id    Int     @default(autoincrement()) @id
+  name String
+  country    Country?    @relation(fields: [countryId], references: [id])
+  countryId  Int? 
+}
