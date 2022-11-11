@@ -1,0 +1,9 @@
+## Please update your credentials for your local database of postgres in the .env file
+
+## first run this query to install node package modules
+
+npm i 
+
+##now you need to run this query to run the project 
+
+npm run start 

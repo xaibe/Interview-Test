@@ -27,13 +27,13 @@ model Currency{
   id    Int     @default(autoincrement()) @id
 name String
 symbol String
-  country    Country?    @relation(fields: [countryId], references: [id])
-  countryId  Int? 
+  country    Country    @relation(fields: [countryId], references: [id])
+  countryId  Int 
 }
 
 model Language{
   id    Int     @default(autoincrement()) @id
   name String
-  country    Country?    @relation(fields: [countryId], references: [id])
-  countryId  Int? 
+  country    Country    @relation(fields: [countryId], references: [id])
+  countryId  Int 
 }
